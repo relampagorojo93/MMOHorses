@@ -1,0 +1,766 @@
+#--------------------------------------------------------------------------#
+#                                                                          #
+#          _____ _____ _____ _____ _____ _____ _____ _____ _____           #
+#         |     |     |     |  |  |     | __  |   __|   __|   __|          #
+#         | | | | | | |  |  |     |  |  |    -|__   |   __|__   |          #
+#         |_|_|_|_|_|_|_____|__|__|_____|__|__|_____|_____|_____|          #
+#                                                                          #
+#  _                  _                                     _     ___ ___  #
+# | |_ _ _    ___ ___| |___ _____ ___ ___ ___ ___ ___ ___  |_|___| . |_  | #
+# | . | | |  |  _| -_| | .'|     | . | .'| . | . |  _| . | | | . |_  |_  | #
+# |___|_  |  |_| |___|_|__,|_|_|_|  _|__,|_  |___|_| |___|_| |___|___|___| #
+#     |___|                      |_|     |___|           |___|             #
+#                                                                          #
+#--------------------------------------------------------------------------#
+
+#---{File version}
+#
+# DON'T TOUCH THIS SECTION! You can move it, but you can't remove this sections
+# or change its values. This values are used to manage the different versions of
+# this file. New files with newer versions uses this part to check if the file is
+# new or old, and change the format to the new one.
+#
+#---
+
+Version: 1
+
+#---{MySQL}
+#
+# Use this section to connect MMOHorses to your MySQL database. In case it's
+# disabled, MMOHorses will use SQLite instead. Use another table prefix in
+# case you're gonna use a database shared with other plugins.
+#
+#---
+
+MySQL: 
+  Enable: false
+  Hostname: localhost
+  Port: 3306
+  Database: server
+  Username: admin
+  Password: admin
+  Table_prefix: ''
+  Protocol: 'jdbc:mysql:'
+  Parameters: sslMode=DISABLED&connectionTimeout=3000&socketTimeout=3000
+
+#---{General Settings}
+#
+# Change some general settings on the plugin. Debug shows some extra messages
+# in case of errors. Disabling the speed bar will only disable it on the
+# internal speed bar used while riding, but lets you use placeholders
+# to show this same information on other ways. Genders can be functionaly
+# disabled, but all horses will keep getting a random gender in case
+# you want to activate it again. Disabling MMO menus will disable the entire
+# claimed horse menu.
+#
+#---
+
+General-settings: 
+  Debug: false
+  Speed-ActionBar: true
+  Enable-genders: true
+
+#---{Hooks}
+#
+# By disabling hooks, you disable the link that MMOHorses generates with this
+# plugins, but also removes their features. You can't use /h reload to
+# hook them, you'll have to do an entire restart instead.
+#
+#---
+
+Hooks: 
+  Vault-Integrity: true
+  WorldGuard-Integrity: true
+  Lands-Integrity: true
+  Citizens-Integrity: true
+  LibsDisguises-Integrity: true
+  PlaceholderAPI-Integrity: true
+  EIOpener: false
+  MythicMobs-Integrity: true
+
+#---{Menus}
+#
+# Here you can disable some of the options that are shown on the MMO menus.
+# Enabling Open-on-mount opens the inventory everytime a player rides
+# a horse.
+#
+#---
+
+Menus: 
+  Open-on-mount: false
+  Open-chest-on-shift-right-click: false
+  Enable-horse-menu: true
+  Enable-crates: false
+  Enable-wardrobe: false
+  
+  #---{Horse menu options}
+  #
+  # Use this section of the configuration to set which options are available
+  # on the horse menu. This also is useful to change the order that this
+  # options are shown on the menu. All the menu options that aren't on this list
+  # will get disabled from the inventory, even for administrators.
+  # The different options are: OPEN_UPGRADES, OPEN_VIRTUALCHEST, OPEN_SETTINGS,
+  # OPEN_TRUSTING, OPEN_WARDROBE, OPEN_STATS, CHANGE_NAME, BUY_HORSE
+  #
+  #---
+  
+  Enable-horse-menu-options: 
+  - OPEN_UPGRADES
+  - OPEN_VIRTUALCHEST
+  - OPEN_SETTINGS
+  - OPEN_TRUSTING
+  - OPEN_WARDROBE
+  - OPEN_STATS
+  - CHANGE_NAME
+  - BUY_HORSE
+  Stats-menu: 
+    
+    #---{Stats on menu}
+    #
+    # Use this section of the configuration to set which stats are shown on
+    # the stats menu. If some of this stats aren't on this list, they'll
+    # not be shown on the stats menu, even for administrators.
+    # The different stat types are: HORSE_LEVEL, SPEED_LEVEL, JUMP_LEVEL,
+    # HEALTH_LEVEL, ARMOR_LEVEL, INVENTORY_LEVEL
+    #
+    #---
+    
+    Enable-stats-on-menu: 
+    - HORSE_LEVEL
+    - SPEED_LEVEL
+    - JUMP_LEVEL
+    - HEALTH_LEVEL
+    - ARMOR_LEVEL
+    - INVENTORY_LEVEL
+
+#---{Cosmetics}
+#
+# Here you can configure how cosmetics will work. Disabling cosmetics will
+# remove the option on the inventories, and also previously set cosmetics
+# will not show over the upgrades. Making them publics allows other players
+# to open the horse inventory and go to the wardrobe to check which cosmetics
+# a horse contains. Making them functional allows you to use cosmetics to
+# ride or give armor points as the usual vanilla items. Using only registered
+# cosmetics allows you to add cosmetics with /h additem and configure them
+# with /h recipes to only allow this items on the wardrobe.
+#
+#---
+
+Cosmetics: 
+  Make-cosmetics-public: true
+  Make-cosmetics-functional: false
+  Only-registered-cosmetics: false
+
+#---{Horse Settings}
+#
+# Here you can configure how horses will work on your server.
+#
+#---
+
+Horse-settings: 
+  
+  #---{Links}
+  #
+  # Links allows you to create a link between the horse and the server. This
+  # links allows the plugin to diff the entities that have to stay on the
+  # server than the ones that not. This can be used depending on the server.
+  # You can allow a cross-server system to allow users use horses from a server
+  # on another server, or link them forcibly to now allow it.
+  #
+  #---
+  
+  List-unlinked: true
+  Allow-link: true
+  Allow-unlink: true
+  
+  #---{Item usage on non-claimed}
+  #
+  # In case you allow the usage of non-claimed horses, but you don't want players
+  # to use some items if they aren't claimed, you can disable their usage here.
+  #
+  #---
+  
+  Disable-equipable-items-usage-on-non-claimed-horses: false
+  
+  #---{Vanilla inventories}
+  #
+  # By default MMOHorses blocks the usage of the vanilla inventory, as this
+  # plugin creates a new inventory system used when they are claimed. Anyway,
+  # you can configure it to allow users open the vanilla inventory when they
+  # aren't claimed yet.
+  #
+  #---
+  
+  Disable-vanilla-inventory: true
+  
+  #---{Default settings}
+  #
+  # Once they are claimed, they get some default settings. This default settings
+  # can be defined here. With this, you can already set horses to follow owners
+  # or to show their health when they are claimed.
+  #
+  #---
+  
+  Link-on-claim: true
+  Link-on-spawn: true
+  Show-name-tag-by-default: true
+  Show-health-tag-by-default: true
+  Follow-owner-by-default: false
+  Block-unmounted-speed-by-default: true
+  
+  #---{Block damage}
+  #
+  # Block damage dealt to horses depending on if they are unclaimed or claimed horses.
+  # You can define which type of damage they'll block. The damage types are: INFIRE,
+  # LIGHTNINGBOLT, ONFIRE, LAVA, HOTFLOOR, INWALL, CRAMMING, DROWN, STARVE, CACTUS, FALL,
+  # FLYINTOWALL, OUTOFWORLD, GENERIC, MAGIC, WITHER, ANVIL, FALLINGBLOCK, DRAGONBREATH,
+  # DRYOUT, SWEETBERRYBUSH, STING, MOB, PLAYER, ARROW, TRIDENT, FIREWORKS, WITHERSKULL,
+  # THROWN, INDIRECTMAGIC, THORNS and EXPLOSION.PLAYER
+  #
+  #---
+  
+  Block-unclaimed-horse-damage-types: []
+  Block-claimed-horse-damage-types: []
+  
+  #---{Vanilla drops}
+  #
+  # If you don't like people killing horses to get drops, you should disable it. Also,
+  # you can disable them from non-claimed horses (Vanilla drops from horses are the
+  # same items that are set on the wardrobe. This items are modified depending on your
+  # configuration. Allowing some options here and other ones on the death section can
+  # generate dups).
+  #
+  #---
+  
+  Disable-horse-vanilla-drops: true
+  Disable-non-registered-horse-vanilla-drops: true
+  
+  #---{General horse settings}
+  #
+  # You can block horses from switching to another world, also by using portals.
+  # World switches can cause some issues depending on the version, cause this it can
+  # be disabled from here.
+  # The minimum price is used to define the lowest price a horse on sale can have.
+  # The bar length is the amount of | that are shown on the bars used to show the health,
+  # speed and jump levels of a horse.
+  # The walk mode for max jump is used to define from which walk mode a horse has its full
+  # jump power. This means that, if GALLOP is the mode where horses goes at full speed, the horse
+  # would have its full jump power since TROT, that is a half of the horse's speed.
+  # The max level is used to prevent horses from getting more level.
+  #
+  #---
+  
+  Horses-can-switch-world: true
+  Minimum-price: 100.0
+  Despawn-after-inactivity-in-minutes: 0
+  Bar-length: 20
+  Walk-mode-for-max-jump: Trot
+  
+  #---{Stats}
+  #
+  # Stats are used to define a range of values that are valid. This values are used
+  # to check a horse's stats, and roll them in case their stats are out of this ranges.
+  # Useful to prevent errors on horses' creation, as sometimes, if something fails, they
+  # can get weird stats.
+  #
+  #---
+  
+  Stats: 
+    Minimum-health: 15.0
+    Maximum-health: 30.0
+    Minimum-speed: 5.0
+    Maximum-speed: 11.0
+    Minimum-jump: 1.0
+    Maximum-jump: 4.0
+    Check-horses-stats: true
+    Upgrades: 
+      
+      #---{Stats upgrades}
+      #
+      # You can configure this section of the configuration to allow users to
+      # buy permanent upgrades for their horses. You can set a formula to define
+      # the price it'll have. You can define the max level for this stats, but
+      # remember that excesive levels and excesive values given can crash your
+      # server or your plugin configuration and information. If you want, you can
+      # pair levels with the horse level, meaning that, if someone levels up their
+      # horses, the other stats will have the same level.
+      # This are the available currencies: EXPERIENCE, EXPERIENCE_LEVEL, VAULT
+      #
+      #---
+      
+      Pair-levels-with-horse-level: false
+      Upgrade-cost-currency: EXPERIENCE
+      Horse-level-upgrade-cost: (2*%level%)^3
+      Speed-level-upgrade-cost: (2*%level%)^3
+      Jump-level-upgrade-cost: (2*%level%)^3
+      Health-level-upgrade-cost: (2*%level%)^3
+      Armor-level-upgrade-cost: (2*%level%)^3
+      Inventory-level-upgrade-cost: (2*%level%)^3
+      Limit-level-upgrade-by-horse-level: false
+      Speed-given-per-level: 10.0
+      Jump-given-per-level: 10.0
+      Health-given-per-level: 2.0
+      Armor-given-per-level: 1.0
+      Maximum-horse-level: 100
+      Maximum-speed-level: 100
+      Maximum-jump-level: 100
+      Maximum-heath-level: 100
+      Maximum-armor-level: 100
+      Maximum-inventory-level: 100
+      Inventory-given-per-level: 1
+  
+  #---{Food system}
+  #
+  # The food system is used to add the same food bar used on players, but on horses.
+  # This adds some needings on horses to take the most care possible of them. This works
+  # on the same way as players' food bar, where moving and doing actions consume this
+  # food level. The max amount of food is 1, meaning that this values are working on %.
+  # So, 0.001 is the same as tell the plugin to remove a 0.1% of the food level per jump done.
+  #
+  #---
+  
+  Food-system: 
+    Enable: false
+    Food-consum-per-block: 3.0E-4
+    Food-consum-per-jump: 0.001
+    Food-recovery-per-food: 0.25
+  
+  #---{Entities}
+  #
+  # Here you can configure the way the plugin will treat the entities. MMOHorses replaces
+  # the entities by a custom one, meaning that removing the plugin can remove the entities
+  # depending on the version.
+  # You can tell the plugin to replace the vanilla entities with the custom ones, meaning
+  # that it doesn't require from parsings to create the custom horses, it's done at the same
+  # creation, but then you can't use the Ignore worlds for replace feature, as the parsing can't
+  # be prevented.
+  # You can decide which entities are replaced or which ones not. Remember that the plugin works
+  # using this custom entities, if they aren't replaced by this ones, the plugin will not
+  # treat them as claimable entities.
+  # You can define on which worlds entities aren't replaced. This just works without replacing
+  # the default entities, and will prevent the automatic replacement on the new summoned ones.
+  # In case you have a plugin that spawns custom horse-like entities or ones that defines custom
+  # data on them, this can be useful.
+  #
+  #---
+  
+  Entities: 
+    Support: 
+      Horse: true
+      Skeleton-horse: true
+      Zombie-horse: true
+      Donkey: true
+      Mule: true
+      Llama: true
+      Trader-llama: true
+    Replace-default-entities: true
+    Ignore-worlds-for-replace: 
+    - WorldToIgnore
+    Selected-worlds-for-replace: []
+  
+  #---{Death}
+  #
+  # Here you can define which items are dropped once a horse dies or is released. The splitted
+  # settings allows you to drop upgrades but not the wardrobe and the inventory, or everything
+  # depending on which kind of server you're creating.
+  #
+  #---
+  
+  Death: 
+    Drop-upgrades-on-death: true
+    Drop-upgrades-on-release: true
+    Drop-upgrades-on-gift: false
+    Drop-wardrobe-on-death: true
+    Drop-wardrobe-on-release: true
+    Drop-wardrobe-on-gift: false
+    Drop-inventory-on-death: true
+    Drop-inventory-on-release: true
+    Drop-inventory-on-gift: false
+    Override-respawn: false
+
+#---{Breeding}
+#
+# Still under development, this section allows you to customize the way
+# horses grow up.
+#
+#---
+
+Breeding: 
+  Custom-grow-up-system: false
+  Time-for-grow-up: 20
+  Use-custom-breeding: true
+
+#---{Player}
+#
+# Here you can edit the player settings. You can allow players to claim
+# automatically once horses are tamed, and also specify the default names
+# they'll get, or in case a player doesn't specify a name. Also, you
+# can specify a teleport cooldown, and which horses from the Custom.yml
+# file will be given on their first join.
+#
+#---
+
+Player: 
+  Claim-on-taming: true
+  Unsummon-on-unmount: false
+  Mount-on-spawn: false
+  Limit-claim-amount-per-player: true
+  Limit-summon-amount-per-player: false
+  Discover-all-recipes: false
+  Teleport-cooldown: 60
+  Default-claim-names: 
+  - Buddy
+  - Lilly
+  - Alexia
+  - Scout
+  - Daisy
+  - Bella
+  - Flash
+  - Tara
+  First-join-horses: 
+  - Name_of_custom_horse
+
+#---{Plugin}
+#
+# Here you'll be able to edit the plugin settings. Actually you can
+# just set the amount of minutes the plugin will autosave the horse's
+# information (Their locations).
+#
+#---
+
+Plugin: 
+  Autosave-cooldown: 2
+
+#---{Items}
+#
+# Configure the items as you want. You can disable the interactions with
+# registered items to make sure they aren't used with another purpose than
+# to become MMOHorses items or upgrades.
+#
+#---
+
+Items: 
+  Block-interactions-with-registered-items: true
+
+#---{Upgrades}
+#
+# Allowing downgrades allows users to remove an upgrade and keep it,
+# replacing it with a better or worst one. In case it's disable, players
+# will only be able to upgrade, replacing the actual one with another one
+# with better values, removing the actual one completly. You can also
+# make upgrades get dropped in case the horse dies or is released.
+#
+#---
+
+Upgrades: 
+  Allow-downgrade: true
+
+#---{Respawning}
+#
+# Here you can edit if the respawn system is enabled, making players
+# wait for a horse respawn to use it again in case it dies. Also you
+# can configure the amount of seconds it takes to be used again.
+#
+#---
+
+Respawning: 
+  Enable-respawn: false
+  Respawn-cooldown: 60
+
+#---{Commands}
+#
+# Here you'll be able to edit the information of all the commands,
+# allowing you to set custom names to them, and also for the
+# subcommands. Basically, the same information used to create this
+# commands internally, can be edited here.
+#
+#---
+
+Commands: 
+  Horse: 
+    Enable: true
+    Name: Horse
+    Aliases: 
+    - h
+    Permission: ''
+    Description: Get all MMOHorses commands
+    Parameters: [command/help]
+    Subcommands: 
+      Buy: 
+        Name: buy
+        Aliases: 
+        - b
+        Permission: Horse.Player.Buy
+        Description: Open the shop with all the horses on sell
+      Claim: 
+        Name: claim
+        Aliases: 
+        - c
+        Permission: Horse.Player.Claim
+        Description: Claim a horse
+        Parameters: [name]
+      Debug: 
+        Name: debug
+        Aliases: 
+        - dg
+        Permission: Horse.Admin.Debug
+        Description: Open a menu with all the debug messages
+      Delete: 
+        Name: delete
+        Aliases: 
+        - d
+        Permission: Horse.Admin.Delete
+        Description: Delete the horse permanently
+      Geld: 
+        Name: geld
+        Aliases: 
+        - g
+        Permission: Horse.Player.Geld
+        Description: Geld your horse
+      Gift: 
+        Name: gift
+        Aliases: 
+        - gf
+        Permission: Horse.Player.Gift
+        Description: Gift the riden horse to a player
+        Parameters: [username]
+      Give: 
+        Name: give
+        Aliases: 
+        - gv
+        Permission: Horse.Admin.Give
+        Description: Summon a custom entity (And give it to a player)
+        Parameters: [custom horse id] <Player> <true/false>
+      GivePresent: 
+        Name: givepresent
+        Aliases: 
+        - gp
+        Permission: Horse.Admin.GivePresent
+        Description: Get a present with a custom horse (Or give it)
+        Parameters: [custom horse id] <Player> <Item name>
+      Heal: 
+        Name: heal
+        Aliases: 
+        - hl
+        Permission: Horse.Admin.Heal
+        Description: Heal the current riden horse
+      Help: 
+        Name: help
+        Aliases: 
+        - h
+        Permission: ''
+        Description: Get all the commands
+        Parameters: <page>
+      Info: 
+        Name: info
+        Aliases: 
+        - i
+        Permission: Horse.Admin.Info
+        Description: Get information about the plugin
+      ListAll: 
+        Name: listall
+        Aliases: 
+        - la
+        Permission: Horse.Admin.ListAll
+        Description: List all the horses even if are linked or aren't yours
+      List: 
+        Name: list
+        Aliases: 
+        - l
+        Permission: Horse.Player.List
+        Description: Open a menu with all your claimed horses
+        Parameters: <player>
+      Lunge: 
+        Name: lunge
+        Aliases: 
+        - ln
+        Permission: Horse.Player.Lunge
+        Description: Start or stop the lunge event on all the leashed horses.
+      Release: 
+        Name: release
+        Aliases: 
+        - r
+        Permission: Horse.Player.Release
+        Description: Release your horse
+      Reload: 
+        Name: reload
+        Aliases: 
+        - rl
+        Permission: Horse.Admin.Reload
+        Description: Reload the plugin configurations
+      Rename: 
+        Name: rename
+        Aliases: 
+        - rn
+        Permission: Horse.Player.Rename
+        Description: Rename your horse
+        Parameters: [name]
+      Sell: 
+        Name: sell
+        Aliases: 
+        - s
+        Permission: Horse.Player.Sell
+        Description: Set a price to the rided horse
+        Parameters: [price]
+      SetColor: 
+        Name: setcolor
+        Aliases: 
+        - sc
+        Permission: Horse.Admin.SetColor
+        Description: Change horse's color
+        Parameters: [color]
+      SetGender: 
+        Name: setgender
+        Aliases: 
+        - sg
+        Permission: Horse.Admin.SetGender
+        Description: Change horse's gender
+        Parameters: [gender]
+      SetHealth: 
+        Name: sethealth
+        Aliases: 
+        - sh
+        Permission: Horse.Admin.SetHealth
+        Description: Set the amount of health the horse will have
+        Parameters: [x.xx]
+      SetJump: 
+        Name: setjump
+        Aliases: 
+        - sj
+        Permission: Horse.Admin.SetJump
+        Description: Set the amount of blocks the horse will jump
+        Parameters: [x.xx]
+      SetMarking: 
+        Name: setmarking
+        Aliases: 
+        - sm
+        Permission: Horse.Admin.SetMarking
+        Description: Change horse's marking
+        Parameters: [marking]
+      SetOwner: 
+        Name: setowner
+        Aliases: 
+        - so
+        Permission: Horse.Admin.SetOwner
+        Description: Change horse's owner
+        Parameters: [username]
+      SetSpeed: 
+        Name: setspeed
+        Aliases: 
+        - ss
+        Permission: Horse.Admin.SetSpeed
+        Description: Set the blocks per second of the horse
+        Parameters: [x.xx]
+      Trust: 
+        Name: trust
+        Aliases: 
+        - t
+        Permission: Horse.Player.Trust
+        Description: Add a player as trusted on the rided horse
+        Parameters: [username]
+      Unsummon: 
+        Name: unsummon
+        Aliases: 
+        - us
+        Permission: Horse.Admin.Unsummon
+        Description: Unsummon all the horses
+        Parameters: <confirm>
+      Untrust: 
+        Name: untrust
+        Aliases: 
+        - ut
+        Permission: Horse.Player.Untrust
+        Description: Remove a player as trusted on the rided horse
+        Parameters: [username]
+      Lands: 
+        Name: lands
+        Aliases: 
+        - ln
+        Permission: Horse.Admin.Lands
+        Description: Get all MMOHorses commands for Lands hook
+        Parameters: [command/help]
+        Subcommands: 
+          SetRestriction: 
+            Name: setrestriction
+            Aliases: 
+            - sr
+            Permission: HorseLands.Admin.SetRestriction
+            Description: Set a speed restriction (No walk mode = Remove restriction)
+            Parameters: [region type] <walk mode>
+      SQL: 
+        Name: sql
+        Aliases: []
+        Permission: Horse.Admin.SQL
+        Description: Get all MMOHorses commands for the SQL management
+        Parameters: [command/help]
+        Subcommands: 
+          ParseFromSQLite: 
+            Name: parsefromsqlite
+            Aliases: 
+            - pfs
+            Permission: HorseSQL.Admin.ParseFromSQLite
+            Description: Parse all the content from the SQLite file to the configured MySQL
+              database (Only works if MySQL is disabled)
+          ParseFromMySQL: 
+            Name: parsefrommysql
+            Aliases: 
+            - pfm
+            Permission: HorseSQL.Admin.ParseFromMySQL
+            Description: Parse all the content from the MySQL database to the configured SQLite
+              file (Only works if MySQL is enabled)
+          Clear: 
+            Name: clear
+            Aliases: 
+            - cl
+            Permission: HorseSQL.Admin.Clear
+            Description: Clear the actual database
+            Parameters: [horses/items/all] <confirm>
+          Unlink: 
+            Name: unlink
+            Aliases: 
+            - ul
+            Permission: HorseSQL.Admin.Unlink
+            Description: Unlink all the horses
+            Parameters: <confirm>
+      Items: 
+        Name: items
+        Aliases: 
+        - it
+        Permission: Horse.Admin.Items
+        Description: Get all MMOHorses commands for the SQL management
+        Parameters: [command/help]
+        Subcommands: 
+          Add: 
+            Name: add
+            Aliases: 
+            - a
+            Permission: HorseItems.Admin.add
+            Description: Add a new MMOHorses' item
+            Parameters: [item name] <item type>
+          Get: 
+            Name: get
+            Aliases: 
+            - g
+            Permission: HorseItems.Admin.Get
+            Description: Get or give a MMOHorses' item without crafting it
+            Parameters: [item name] <Player>
+          List: 
+            Name: list
+            Aliases: 
+            - l
+            Permission: HorseItems.Admin.List
+            Description: Check all the recipes and manage them
+          Export: 
+            Name: export
+            Aliases: 
+            - e
+            Permission: HorseItems.Admin.Export
+            Description: Export your items into a YAML file
+            Parameters: <file name>
+          Import: 
+            Name: import
+            Aliases: 
+            - i
+            Permission: HorseItems.Admin.Import
+            Description: Import items from a file
+            Parameters: <file name>

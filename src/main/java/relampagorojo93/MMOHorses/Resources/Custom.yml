@@ -1,0 +1,14 @@
+Example:
+  Name: My First Horse
+  Type: HORSE
+  Color: BROWN
+  Marking: PINTO
+  Armor: LEATHER_ARMOR
+  Saddle: SADDLE
+  Jump: 3
+  Speed: 10
+  Health: 30
+  Jump_upgrade: JUMP_UPGRADE1
+  Speed_upgrade: SPEED_UPGRADE1
+  Health_upgrade: HEALTH_UPGRADE1
+  Chest_upgrade: CHEST_UPGRADE1

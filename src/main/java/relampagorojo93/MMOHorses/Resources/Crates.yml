@@ -1,0 +1,12 @@
+Example:
+  Name: Example crate
+  Price: 200.0
+  Horses:
+    Horse1:
+      Description: Mysterious horse
+      Custom-horse: Example
+      Chance: 1
+    Horse2:
+      Description: What will it be?
+      Custom-horse: Example
+      Chance: 4

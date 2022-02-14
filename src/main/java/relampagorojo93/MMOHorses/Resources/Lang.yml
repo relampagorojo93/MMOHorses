@@ -1,0 +1,425 @@
+#--------------------------------------------------------------------------#
+#                                                                          #
+#          _____ _____ _____ _____ _____ _____ _____ _____ _____           #
+#         |     |     |     |  |  |     | __  |   __|   __|   __|          #
+#         | | | | | | |  |  |     |  |  |    -|__   |   __|__   |          #
+#         |_|_|_|_|_|_|_____|__|__|_____|__|__|_____|_____|_____|          #
+#                                                                          #
+#  _                  _                                     _     ___ ___  #
+# | |_ _ _    ___ ___| |___ _____ ___ ___ ___ ___ ___ ___  |_|___| . |_  | #
+# | . | | |  |  _| -_| | .'|     | . | .'| . | . |  _| . | | | . |_  |_  | #
+# |___|_  |  |_| |___|_|__,|_|_|_|  _|__,|_  |___|_| |___|_| |___|___|___| #
+#     |___|                      |_|     |___|           |___|             #
+#                                                                          #
+#--------------------------------------------------------------------------#
+
+#---{File version}
+#
+# DON'T TOUCH THIS SECTION! You can move it, but you can't remove this sections
+# or change its values. This values are used to manage the different versions of
+# this file. New files with newer versions uses this part to check if the file is
+# new or old, and change the format to the new one.
+#
+#---
+
+Version: 1
+
+Prefix: &6&lMMO&e&lHorses &a&l>>&r&7
+Message: 
+  Reload: The plugin has been reloaded successfully.
+  Already-castrated: Your horse is already castrated.
+  Already-claimed: This horse is already claimed.
+  Already-trusted: This player is already a trusted player.
+  Cancelled: Your action has been cancelled.
+  Cleared-all: All the database has been cleared!
+  Cleared-horses: All horses on the database have been cleared!
+  Cleared-items: All items on the database have been cleared!
+  Console-denied: You can't use this command in console.
+  Cooldown-active: Your horse have a cooldown of %remaining% second/s. Please wait until
+    your horse gets ready.
+  Disabled-link: You can't link in this server.
+  Disabled-unlink: You can't unlink in this server.
+  Empty-hand: Your hand is empty. You must have an item in your hand.
+  Entity-not-supported: This entity is not supported.
+  Entity-not-supports-feature: This entity seems to not support this feature!
+  Genders-disabled: Genders are disabled, you can't use this feature.
+  Horse-bought: You have bought this horse!
+  Horse-castrated: Your horse has been castrated.
+  Horse-claimed: Horse claimed with name %name%.
+  Horse-deleted: You have successfully deleted this horse.
+  Horse-edited: You have successfully edited this horse.
+  Horse-error: Seems like something happened with that horse. (probably it become
+    unclaimed, sold or deleted)
+  Horse-level-up: You horse is now level %level%!
+  Horse-max-level: Your horse already reach its max level!
+  Horse-not-summoned: You haven't summon this horse yet.
+  Horse-released: You released this horse. Use /horse claim [name] again if you wish
+    to get it back.
+  Horse-sold: %buyer% bought your horse %name% for %price%!
+  Item-added: A new item has been added.
+  Item-already-exists: There's already an item with this name.
+  Item-max-level-exceeded: Your horse has a higher level than the allowed for this item.
+  Item-min-level-not-reached: Your horse doesn't have the required level to use this item.
+  Lands-not-hooked: Lands is not hooked. You can't use this features.
+  Max-level-change-in-chat: Specify a new maximum level for the item. Write 'cancel' to cancel
+    this action.
+  Max-level-changed: You have changed the maximum level of the item.
+  Max-level-not-specified: You must specify a maxium level for the item.
+  Max-reached: You have reached your max allowed.
+  Min-level-change-in-chat: Specify a new minimum level for the item. Write 'cancel' to cancel
+    this action.
+  Min-level-changed: You have changed the minimum level of the item.
+  Min-level-not-specified: You must specify a minium level for the item.
+  Missing-entity: This horse doesn't have an entity linked to it. You can't link this
+    horse to the server.
+  MySQL-connection-error: There was an error trying to connect to the MySQL database (Check
+    your MySQL configuration).
+  MySQL-disabled-error: You can't parse MySQL information to SQLite while you aren't using
+    MySQL.
+  MySQL-enabled-error: You can't parse SQLite information to MySQL while you're using MySQL.
+  Name-change-in-chat: Specify a new name for your steed. Write 'cancel' to cancel this
+    action.
+  Name-changed: You have changed the name of your steed.
+  Name-max-length-reached: The name of your steed exceeds the max of 32 characters.
+  Name-not-specified: You must specify a name for your steed.
+  No-bred: These horses can't be bred.
+  No-more-on-sale: This horse is no more on sale now
+  No-permissions: You don't have permissions for this.
+  Not-buy-yourself: You can't buy your own horses.
+  Not-claimed: This horse is not claimed.
+  Not-enough-experience: You don't have enough experience for this.
+  Not-enough-experience-levels: You don't have enough experience levels for this.
+  Not-enough-money: You don't have enough money for this horse.
+  Not-in-a-land: You're not inside a land.
+  Not-in-an-area: You're not inside an area
+  Not-leashed: You aren't leashed to an owned horse
+  Not-on-sale: Seems like this horse is no more on sale.
+  Not-owner: You aren't the owner of this horse.
+  Not-online: This player is not online.
+  Not-rideable: You can't ride this horse.
+  Not-riding: You aren't riding a horse.
+  Not-tamed: This horse is not tamed.
+  Not-trusted: This player is not a trusted player on your horse.
+  Not-yourself: The player can't be yourself.
+  On-sale: This horse is now on sale.
+  Only-numbers: You must specify a number.
+  Only-numbers-letters-underscore: You can only use numbers, letters and underscore here.
+  Only-UUID: You must specify a valid UUID!
+  Owner-changed: Horse's owner has been changed.
+  Parsed-data: Data has been parsed successfully.
+  Parsing-error: There was an error trying to parse the database information (Contact
+    with the developer).
+  Price-too-low: You must set a price equal or higher than %minimum_price%
+  Player-max-reached: This player has reached the max amount of claims.
+  Player-max-summon-reached: This player has reached the max amount of summons he can have at
+    the same time.
+  Respawn-active: Your horse is dead, you still have to wait %remaining% second/s to
+    respawn it!
+  Restriction-set: The restriction has been set successfully.
+  Restriction-removed: The restriction has been removed successfully.
+  Same-gender: The horse's gender is %gender%.
+  Stat-upgraded: The stat has been upgraded successfully!
+  Summon-not-allowed: You can't summon a horse here.
+  SQLite-connection-error: There was an error trying to connect to the SQLite database (Contact
+    with the developer).
+  Too-many-summoned-horses: You reached the max amount of horses you can summon at the same time.
+  Trust-added: Player added.
+  Trust-removed: Player removed.
+  Unlinked-horses: All horses on the database have been unlinked!
+  Value-change-in-chat: Specify a new value for the item. Write 'cancel' to cancel this action.
+  Value-changed: You have changed the value of the item.
+  Value-not-specified: You must specify a value for the item.
+  World-switch-blocked: You can't teleport a horse to another world.
+  Non-claimed-horse-info: 
+  - ' '
+  - &8&l>>>>>>-------------------------------<<<<<<
+  - ' '
+  - '&e  Gender: &a%horse_gender%'
+  - ' '
+  - '&e  Jump: &a%horse_jump_amount%'
+  - '&e  Speed: &a%horse_speed_amount%'
+  - '&e  Health: &a%horse_health_amount%'
+  - ' '
+  - &8&l>>>>>>-------------------------------<<<<<<
+  Claimed-horse-info: 
+  - ' '
+  - &8&l>>>>>>-------------------------------<<<<<<
+  - ' '
+  - '&e  Name: &a%horse_name%'
+  - '&e  Gender: &a%horse_gender%'
+  - '&e  Level: &a%horse_level%'
+  - ' '
+  - '&e  Jump: &a%horse_jump_amount% &7+ &a%horse_permanentjumpupgrade_amount%
+    &8(&b+ %horse_jumpupgrade_amount%&8) <&7Actual: %horse_jump_actual%&8>'
+  - '&e  Speed: &a%horse_speed_amount% &7+ &a%horse_permanentspeedupgrade_amount%
+    &8(&b+ %horse_speedupgrade_amount%&8) <&7Actual: %horse_speed_actual%&8>'
+  - '&e  Health: &a%horse_health_amount% &7+ &a%horse_permanenthealthupgrade_amount%
+    &8(&b+ %horse_healthupgrade_amount%&8) <&7Actual: %horse_health_actual%&8>'
+  - '&e  Armor points: &a%horse_permanentarmorupgrade_amount% &8(&b+
+    %horse_armorupgrade_amount%&8)'
+  - '&e  Has saddle: &a%horse_saddle%'
+  - ' '
+  - '&e  Price: &a%horse_price%'
+  - ' '
+  - &8&l>>>>>>-------------------------------<<<<<<
+  Horse-info: 
+    Never: &aNever
+    Yes: &aYes
+    No: &cNo
+    On: &aON
+    Off: &cOFF
+    Price: &a%horse_price%$
+    Not-in-sale: &cNot in sale
+  Gender: 
+    Mare: Mare
+    Stallion: Stallion
+    Gelding: Gelding
+  Speed-bar: 
+    Bar-format: %horse_name% &f| &e%horse_health_actual%&4❤ &f| &e%horse_walkmode_percent%%
+    No-saddle: ' &8(&6No saddle!&8)'
+    No-saddle-upgrade: ' &8(&6No saddle upgrade!&8)'
+Buy-GUI: 
+  Title: Buy
+  Horse-item-name: %horse_name% &8(&7%horse_gender%&8) [&a%horse_price%&8]
+  Crates-item-name: &eCrates shop
+Chest-GUI: 
+  Title: Virtual Chest
+Crates-GUI: 
+  Title: Crates
+Horse-GUI: 
+  Title: %horse_name%
+  Info-name: '&eInfo:'
+  No-saddle-name: &cNo Saddle
+  No-armor-name: &cNo Armor
+  No-carpet-name: &cNo Carpet
+  No-accessory-name: &cNo Accessory
+  Upgrades-name: &eUpgrades
+  Virtual-chest-name: &eVirtual Chest
+  Wardrobe-name: &eWardrobe
+  Settings-name: &eSettings
+  Trusting-name: &eTrusted players
+  Changename-name: &eChange name
+  Buy-name: &7Buy &8(&a%horse_price%&8)
+  Stats-name: &eStats
+  Previous-arrow-name: &ePrevious option
+  Next-arrow-name: &eNext option
+  Info-lore: 
+  - ' '
+  - '&e  Owner: &a%horse_owner%'
+  - '&e  Gender: &a%horse_gender%'
+  - '&e  Level: &a%horse_level%'
+  - ' '
+  - '&e  Jump: &a%horse_jump_amount% &7+ &8(&b%horse_jumpupgrade_amount%&8)
+    <&7Actual: %horse_jump_actual%&8>'
+  - '&e  Speed: &a%horse_speed_amount% &7+ &8(&b%horse_speedupgrade_amount%&8)
+    <&7Actual: %horse_speed_actual%&8>'
+  - '&e  Health: &a%horse_health_amount% &7+ &8(&b%horse_healthupgrade_amount%&8)
+    <&7Actual: %horse_health_actual%&8>'
+  - '&e  Armor points: &a%horse_permanentarmorupgrade_amount% &8(&b+
+    %horse_armorupgrade_amount%&8)'
+  - '&e  Has saddle: &a%horse_saddle%'
+  - ' '
+  - '&e  Lifetime: &a%horse_lifetime% day/s'
+  - '&e  Claim date: &a%horse_lifetime_date%'
+  - '&e  Days since last death: &a%horse_deathtime% day/s'
+  - '&e  Last death: &a%horse_deathtime_date%'
+  - ' '
+  Upgrades-lore: 
+  - &7Put any item here to
+  - &7use as accessory.
+  - ' '
+  - &7Click inside this inventory
+  - &7with an upgrade to equip
+  - &7it automatically.
+  Virtual-chest-lore: 
+  - &7Click on me to open
+  - &7the virtual chest.
+  Wardrobe-lore: 
+  - &7Click on me to open
+  - &7the wardrobe.
+  Settings-lore: 
+  - &7Click on me to edit the
+  - &7settings of your horse.
+  Trusting-lore: 
+  - &7Click on me to see and
+  - &7edit horse's trusted players.
+  Stats-lore: 
+  - &7Click on me to check
+  - &7the horse stats
+  - &7and/or upgrade.
+List-GUI: 
+  Title: List
+  Horse-item-name: %horse_name% &bLvL %horse_level% &8(&7%horse_gender%&8) [&a%horse_owner%&8]
+    <&a%horse_status%&8>
+  Left-click-text: '&8- &6Left-Click: &aTeleport the horse to you'
+  Right-click-text: '&8- &6Right-Click: &eTeleport yourself to the horse'
+  Q-key-text: '&8- &6Q key: &aUnsummon the horse'
+  Shift-left-click-text: '&8- &6Shift + Left-Click: &bOpen horse's inventory'
+  Shift-right-click-text: '&8- &6Shift + Right-Click: &cDelete the horse'
+Settings-GUI: 
+  Title: Settings
+  Nametag-name: &eShow name &8[&a%status%&8]
+  Healthtag-name: &eShow health &8[&a%status%&8]
+  Follow-owner-name: &eFollow owner &8[&a%status%&8]
+  Link-name: &eLink &8[&a%status%&8]
+  Block-speed-name: &eBlock speed on unmount &8[&a%status%&8]
+  Nametag-lore: 
+  - &7Switch this name tag setting
+  - &7if you want to show
+  - &7it or not.
+  Healthtag-lore: 
+  - &7Switch this health setting
+  - &7if you want to show the
+  - &7health of your horse next
+  - &7to the name or not.
+  Follow-owner-lore: 
+  - &7Switch this follow setting
+  - &7if you want your horse to
+  - &7follow you when you
+  - &7are close.
+  Link-lore: 
+  - &7Switch this link setting
+  - &7if you want to link the
+  - &7horse to this server or not.
+  Block-speed-lore: 
+  - &7Switch this speed setting
+  - &7if you want to block the speed
+  - &7of a horse when it's unmounted.
+  Public: &ePublic &8[&a%status%&8]
+Upgrade-GUI: 
+  Title: Upgrades
+  No-jump-upgrade-name: &cJump Upgrade LvL 0
+  No-speed-upgrade-name: &cSpeed Upgrade LvL 0
+  No-health-upgrade-name: &cHealth Upgrade LvL 0
+  No-skill-upgrade-name: &cNo Skill
+  No-saddle-upgrade-name: &cNo Saddle
+  No-armor-upgrade-name: &cNo Armor
+  No-chest-upgrade-name: &cChest Upgrade LvL 0
+  No-jump-upgrade-lore: 
+  - &7Put a jump upgrade here to
+  - &7get a jump boost for your horse.
+  No-speed-upgrade-lore: 
+  - &7Put a speed upgrade here to
+  - &7get a speed boost for your horse.
+  No-health-upgrade-lore: 
+  - &7Put a health upgrade here to
+  - &7give your horse additional hearts.
+  No-skill-upgrade-lore: 
+  - &7Put a skill upgrade here to
+  - &7give your horse special abilities.
+  No-saddle-upgrade-lore: 
+  - &7Put a saddle upgrade here to
+  - &7be able to ride your horse.
+  No-armor-upgrade-lore: 
+  - &7Put an armor upgrade here to
+  - &7add some armor points.
+  No-chest-upgrade-lore: 
+  - &7Put a chest upgrade here to
+  - &7add more slots to your inventory.
+Trusting-GUI: 
+  Title: Trusted players
+  Add-trusted-name: &a&lAdd a new trusted player
+  Player-lore: 
+  - '&8- &6Click: &cRemove player as trusted'
+  - '&8- &6Q key: &cEdit trusted permissions'
+Trust-edition-GUI: 
+  Title: Edit %username% access
+  Upgrades-name: &eUpgrades
+  Virtual-chest-name: &eVirtual Chest
+  Wardrobe-name: &eWardrobe
+  Settings-name: &eSettings
+  Trusting-name: &eTrusted players
+  Changename-name: &eChange name
+  Previous-arrow-name: &ePrevious option
+  Next-arrow-name: &eNext option
+Adding-GUI: 
+  Title: Adding trusted players
+  Player-lore: 
+  - '&8- &6Click: &aAdd player as trusted'
+Wardrobe-GUI: 
+  Title: Wardrobe
+  No-saddle-lore: 
+  - &7Put any saddle here to
+  - &7use as your horse saddle.
+  No-armor-lore: 
+  - &7Put any horse armor here to
+  - &7use as your horse armor.
+  No-carpet-lore: 
+  - &7Put any carpet here to
+  - &7use as your llama carpet.
+  No-accessory-lore: 
+  - &7Put any item here to
+  - &7use as accessory.
+Change-name-GUI: 
+  Title: Change name
+Common-GUI: 
+  Summoned-text: &aSummoned
+  Unsummoned-text: &cUnsummoned
+  Alive-text: &aAlive
+  Dead-text: &cDead
+  Left-arrow-name: &7&l<- &7Previous
+  Right-arrow-name: &7Next &7&l->
+  Return-name: &6Return
+  Sorting-name: '&a&lSorting by: &7%sorter%'
+Help-command: 
+  Left-arrow-available: &e«
+  Left-arrow-unavailable: &r«
+  Right-arrow-available: &e»
+  Right-arrow-unavailable: &r»
+  Header: 
+  - ' '
+  - &c・。・。・。・。・。・。・。%left_arrow%&r %current_page%/%max_page% %right_arrow%&c。・。・。・。・。・。・。・
+  - ' '
+  Body: 
+  - &6%command_usage%
+  - '  &8%command_description%'
+  Foot: 
+  - ' '
+  - &c・。・。・。・。・。・。・。・。・。・。・。・。・。・。・。・。・
+Stats-GUI: 
+  Title: Stats
+  Horse-level-name: &eHorse level &b%level% &8(&7%cost% $&8)
+  Speed-level-name: &eSpeed level &b%level% &8(&7%cost% $&8)
+  Jump-level-name: &eJump level &b%level% &8(&7%cost% $&8)
+  Health-level-name: &eHealth level &b%level% &8(&7%cost% $&8)
+  Armor-level-name: &eArmor level &b%level% &8(&7%cost% $&8)
+  Inventory-level-name: &eInventory level &b%level% &8(&7%cost% $&8)
+  Previous-arrow-name: &ePrevious stat
+  Next-arrow-name: &eNext stat
+  Horse-level-lore: 
+  - &7Click me to level
+  - &7up your horse
+  Speed-level-lore: 
+  - &7Click me to level up
+  - &7your horse's speed
+  Jump-level-lore: 
+  - &7Click me to level up
+  - &7your horse's jump
+  Health-level-lore: 
+  - &7Click me to level up
+  - &7your horse's health
+  Armor-level-lore: 
+  - &7Click me to level up
+  - &7your horse's armor
+  Inventory-level-lore: 
+  - &7Click me to add more
+  - &7slots to your virtual
+  - &7horse chest
+Items-list-GUI: 
+  Title: Items
+  Item-lore: 
+  - &e&oClick on me to check the recipe
+  Info-item-lore: 
+  - &0  &eItem Name &8→ &a%item_name%
+  - &0  &eItem Type &8→ &a%item_type%
+  - &0  &eValue &8→ &a%item_value%
+  - &0  &eMinimum level &8→ &a%item_min_level%
+  - &0  &eMaximum level &8→ &a%item_max_level%
+  Admin-item-lore: 
+  - '&8- &6Left-Click: &aOpen editor'
+  - '&8- &6Shift + Left-Click: &eGet a copy of the item'
+  - '&8- &6Q key: &bOpen settings editor'
+  - '&8- &6Right-Click: &cRemove recipe'
+Broadcast-death: 
+  By-player: ''
+  By-other: ''

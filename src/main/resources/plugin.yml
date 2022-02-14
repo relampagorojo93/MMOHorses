@@ -1,0 +1,39 @@
+main: relampagorojo93.MMOHorses.MMOHorses
+name: MMOHorses
+author: relampagorojo93
+version: ${project.version}
+description: Claim horses and manage them, sell them or upgrade them
+api-version: 1.13
+softdepend: [Vault,WorldGuard,WorldEdit,PlaceholderAPI,Lands,Citizens,LibsDisguises,EzInvOpener,MythicMobs]
+
+permissions:
+  horse.player:
+    description: Gives access to all player commands
+    default: true
+    children:
+      horse.player.buy: true
+      horse.player.claim: true
+      horse.player.geld: true
+      horse.player.gift: true
+      horse.player.list: true
+      horse.player.lunge: true
+      horse.player.release: true
+      horse.player.rename: true
+      horse.player.sell: true
+      horse.player.trust: true
+      horse.player.untrust: true
+      horse.teleporttoyou: true
+  horse.admin:
+    description: Gives access to all admin commands
+    default: op
+    children:
+      horse.bypassmount: true
+      horse.bypassclaim: true
+      horse.bypassownership: true
+      horse.bypasscooldown: true
+      horse.bypassrespawn: true
+      horse.summonbypass: true
+      horse.speedbypass: true
+      horse.teleport: true
+      horse.teleporttoyou: true
+      horse.unsummon: true
